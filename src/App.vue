@@ -30,9 +30,6 @@ export default {
 </script>
 
 <style>
-body {
-	overflow: hidden; /* Hide scrollbars */
-}
 
 #app {
 	font-family: Avenir, Helvetica, Arial, sans-serif;
