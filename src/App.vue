@@ -14,8 +14,8 @@
 			</label>
 		</div>
 		<div class="nav-links">
-			<router-link to="/">Home</router-link> |
-			<router-link to="/Images">Images</router-link> |
+			<router-link to="/">Home</router-link> 
+			<router-link to="/Images">Images</router-link> 
 			<router-link to="/Favorites">Favorites</router-link>
 		</div>
 	</div>
