@@ -18,12 +18,6 @@ const routes = [
     name: "Favorites",
     component: () => import(/* webpackChunkName: "Favorites" */ '../views/Favorites.vue') 
   },
-
-  {
-    path: "/Fullscreen",
-    name: "Fullscreen",
-    component: () => import(/* webpackChunkName: "Fullscreen" */ '../views/Fullscreen.vue') 
-  },
 ];
 
 const router = createRouter({
