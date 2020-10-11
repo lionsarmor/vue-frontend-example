@@ -113,7 +113,7 @@ article:nth-child(even) {
 
 .overlay-content {
 	position: relative;
-	top: 5%;
+	top: 10%;
 	width: 100%;
 	text-align: center;
 	margin-top: 30px;
