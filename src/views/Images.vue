@@ -2,16 +2,17 @@
 	<div>
 <main>
   <article v-for="item in ids" :key="item.images">
-    <span style="cursor:pointer" @click="openNav(ids[item])">
-    <img v-bind:src="images[item]" class="img-small" />
-    <p>{{ids[item]}}</p>
+    <span style="cursor:pointer" @click="openNav(item)">
+    <img v-bind:src="'https://portal-tb.lynxx.co/api-test/image/'+ [item]" class="img-small" />
+    <p>Title : {{item}}</p>
     </span>
     </article>
 </main>
 <div id="myNav" class="overlay">
   <a href="javascript:void(0)" class="closebtn" @click="closeNav()">&times;</a>
   <div class="overlay-content">
-    <img v-bind:src="images[number]" class="img-big" />
+    <img v-bind:src="'https://portal-tb.lynxx.co/api-test/image/'+ [number]" class="img-big" />
+        <p>Title : {{number}}</p>
   </div>
 </div>
 	</div>
@@ -29,28 +30,23 @@ export default {
 		};
 	},
 	methods: {
-
     openNav(number) {
     this.number = number;
     console.log(number)
     document.getElementById("myNav").style.width = "100%";
     },
-
     closeNav() {
     document.getElementById("myNav").style.width = "0%";
     },
 
 		// GET request
 		async getImageList() {
-			const res = await fetch("https://portal-tb.lynxx.co/api-test/image/list");
+      const res = await fetch("https://portal-tb.lynxx.co/api-test/image/list");
 			const data = await res.json();
       this.data = data;
-      const imageAPI = "https://portal-tb.lynxx.co/api-test/image/";
 			for (var i = 0; i < data.length; i++) {
-      this.ids.push(data[i].id);
-			this.images.push(imageAPI + data[i].name);
+        this.ids.push(data[i].name)
       }
-      console.log(this.images);
     },
     
 	},
@@ -94,8 +90,8 @@ article:nth-child(even) {
   border-radius: 10px;
 }
 .img-big {
-  max-width:900px;
-  border-radius: 10px;
+  width: 90%;
+  height: auto;
 }
 .overlay {
   height: 100%;
@@ -116,6 +112,7 @@ article:nth-child(even) {
   width: 100%;
   text-align: center;
   margin-top: 30px;
+  color: #fff;
 }
 
 .overlay a {
